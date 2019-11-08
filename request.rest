@@ -1,0 +1,47 @@
+GET http://localhost:6000/posts
+
+### separate server for autorization
+
+POST http://localhost:7000/login
+Content-Type: application/json
+
+{
+    "username": "Marek"
+}
+
+###
+
+DELETE http://localhost:7000/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFyZWsiLCJpYXQiOjE1NzMyMzY4MDJ9.z6_mPzSNV4ukcLZbWjq1RZ9XZ7S06Mg9Ol6fjoxCQPU"
+}
+
+###
+
+POST http://localhost:7000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFyZWsiLCJpYXQiOjE1NzMyMzY4MDJ9.z6_mPzSNV4ukcLZbWjq1RZ9XZ7S06Mg9Ol6fjoxCQPU"
+}
+
+###
+
+GET http://localhost:6000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFyZWsiLCJpYXQiOjE1NzMyMzY1MDgsImV4cCI6MTU3MzIzNjUyM30.-JaLOzTPPwaJug3IHOx4HhKrN0nMNEchO-CrlZOJXcc
+
+###
+
+POST http://localhost:7000/login
+Content-Type: application/json
+
+{
+    "username": "Lukas"
+}
+
+###
+
+GET http://localhost:6000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTHVrYXMiLCJpYXQiOjE1NzMxNDYxNjR9.i5G4qS1xr7b_JaShwmWhjJPzTw8Q48LZNefYoSYgOBQ
